@@ -94,17 +94,11 @@ class IHAVR200 extends IPSModule {
     $this->UpdateScenesProfile();
     $this->UpdateInputsProfile();
 
-    $stateId = $this->RegisterVariableBoolean("STATE", "Zustand", "~Switch", 1);
-    $this->EnableAction("STATE");
-    $muteId = $this->RegisterVariableBoolean("MUTE", "Mute", "~Switch", 3);
-    IPS_SetIcon($muteId, 'Speaker');
-    $this->EnableAction("MUTE");
-    $volumeId = $this->RegisterVariableFloat("VOLUME", "Volume", "Volume.YAVR", 2);
-    $this->EnableAction("VOLUME");
-    $sceneId = $this->RegisterVariableInteger("SCENE", "Batterie", "YAVR.Scenes{$this->InstanceID}", 8);
+   
+    $sceneId = $this->RegisterVariableFloat("SCENE", "Batterie", "YAVR.Scenes{$this->InstanceID}", 8);
     $this->EnableAction("SCENE");
     IPS_SetIcon($sceneId, 'HollowArrowRight');
-    $inputId = $this->RegisterVariableInteger("INPUT", "Version", "YAVR.Inputs{$this->InstanceID}", 9);
+    $inputId = $this->RegisterVariableFloat("INPUT", "Version", "YAVR.Inputs{$this->InstanceID}", 9);
     $this->EnableAction("INPUT");
     IPS_SetIcon($inputId, 'ArrowRight');
 
