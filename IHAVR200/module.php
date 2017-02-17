@@ -20,7 +20,7 @@ class NeatoBotvacClient {
 					"token" 		=> bin2hex(openssl_random_pseudo_bytes(32)),
 					"password" 	=> $password
 				)
-				public function Create() {
+				
     parent::Create();
     $this->RegisterPropertyString("EMail", "");
     $this->RegisterPropertyString("Password", "");
@@ -28,7 +28,7 @@ class NeatoBotvacClient {
 
     $this->UpdateScenesProfile();
     $this->UpdateInputsProfile();
-  }
+
 			);
 
 			if(isset($result["access_token"])) {
