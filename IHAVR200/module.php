@@ -40,11 +40,11 @@ class NeatoBotvacClient {
 		if($token !== false) {
 			$this->token = $token;
 		}
-
+echo $token;
 		if($this->token !== false) {
 			$result = NeatoBotvacApi::request($this->baseUrl."/dashboard", null, "GET", array("Authorization: Token token=".$this->token));
 		}
-echo $token
+
 		return $result;
 	}
 }
