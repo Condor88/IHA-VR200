@@ -53,9 +53,8 @@ require_once("Robot.php");
 
   public function Create() {
     parent::Create();
-    $this->RegisterPropertyString("Host", "");
-    $this->RegisterPropertyString("Zone", "Main_Zone");
-    $this->RegisterPropertyInteger("UpdateInterval", 5);
+    $this->RegisterPropertyString("Benutzername", "");
+    $this->RegisterPropertyString("Password", "");
 
     if (!IPS_VariableProfileExists('Volume.YAVR')) IPS_CreateVariableProfile('Volume.YAVR', 2);
     IPS_SetVariableProfileDigits('Volume.YAVR', 1);
@@ -102,10 +101,10 @@ require_once("Robot.php");
     $this->EnableAction("MUTE");
     $volumeId = $this->RegisterVariableFloat("VOLUME", "Volume", "Volume.YAVR", 2);
     $this->EnableAction("VOLUME");
-    $sceneId = $this->RegisterVariableInteger("SCENE", "Szene", "YAVR.Scenes{$this->InstanceID}", 8);
+    $sceneId = $this->RegisterVariableInteger("SCENE", "Batterie", "YAVR.Scenes{$this->InstanceID}", 8);
     $this->EnableAction("SCENE");
     IPS_SetIcon($sceneId, 'HollowArrowRight');
-    $inputId = $this->RegisterVariableInteger("INPUT", "Eingang", "YAVR.Inputs{$this->InstanceID}", 9);
+    $inputId = $this->RegisterVariableInteger("INPUT", "Version", "YAVR.Inputs{$this->InstanceID}", 9);
     $this->EnableAction("INPUT");
     IPS_SetIcon($inputId, 'ArrowRight');
 
