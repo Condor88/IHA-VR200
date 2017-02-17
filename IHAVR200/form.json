@@ -1,6 +1,6 @@
 {
   "elements": [
-        { "type": "ValidationTextBox", "name": "EMail Adresse", "caption": "EMail Adresse" },
+        { "type": "ValidationTextBox", "name": "Email", "caption": "Email" },
         { "type": "PasswordTextBox", "name": "Password", "caption": "Password" },
   ],
   "actions": [
