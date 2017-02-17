@@ -1,5 +1,5 @@
 <?
-class YAVR extends IPSModule {
+class IHAVR200 extends IPSModule {
 
   public $InputMapping = array(
     'HDMI1' => 1,
