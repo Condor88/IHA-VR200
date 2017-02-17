@@ -20,6 +20,15 @@ class NeatoBotvacClient {
 					"token" 		=> bin2hex(openssl_random_pseudo_bytes(32)),
 					"password" 	=> $password
 				)
+				public function Create() {
+    parent::Create();
+    $this->RegisterPropertyString("EMail", "");
+    $this->RegisterPropertyString("Password", "");
+
+
+    $this->UpdateScenesProfile();
+    $this->UpdateInputsProfile();
+  }
 			);
 
 			if(isset($result["access_token"])) {
@@ -40,7 +49,6 @@ class NeatoBotvacClient {
 		if($token !== false) {
 			$this->token = $token;
 		}
-echo $token;
 		if($this->token !== false) {
 			$result = NeatoBotvacApi::request($this->baseUrl."/dashboard", null, "GET", array("Authorization: Token token=".$this->token));
 		}
@@ -101,20 +109,7 @@ class IHAVR200 extends IPSModule {
 
  
   
-  public function Create() {
-    parent::Create();
-    $this->RegisterPropertyString("EMail", "");
-    $this->RegisterPropertyString("Password", "");
-
-    if (!IPS_VariableProfileExists('Volume.YAVR')) IPS_CreateVariableProfile('Volume.YAVR', 2);
-    IPS_SetVariableProfileDigits('Volume.YAVR', 1);
-    IPS_SetVariableProfileIcon('Volume.YAVR', 'Intensity');
-    IPS_SetVariableProfileText('Volume.YAVR', "", " dB");
-    IPS_SetVariableProfileValues('Volume.YAVR', -80, 16, 0.5);
-
-    $this->UpdateScenesProfile();
-    $this->UpdateInputsProfile();
-  }
+  
   
   
 
