@@ -49,9 +49,6 @@ class IHAVR200 extends IPSModule {
     'JUKE' => 115,
     'MusicCast Link' => 116,
     'Main Zone Sync' => 200
-	'Status' => 300
-	'Batterie' => 400
-	'Version' => 500
   );
 
   class NeatoBotvacClient {
@@ -143,9 +140,9 @@ class IHAVR200 extends IPSModule {
     $this->UpdateScenesProfile();
     $this->UpdateInputsProfile();
 
-    $sceneId = $this->RegisterVariableFloat("Status", "Status", "YAVR.Scenes{$this->InstanceID}", 300);
-    $sceneId = $this->RegisterVariableFloat("Batterie", "Batterie", "YAVR.Scenes{$this->InstanceID}", 400);
-    $inputId = $this->RegisterVariableFloat("Version", "Version", "YAVR.Inputs{$this->InstanceID}", 500);
+    $sceneId = $this->RegisterVariableFloat("Status", "Status", "YAVR.Scenes{$this->InstanceID}", 7);
+    $sceneId = $this->RegisterVariableFloat("Batterie", "Batterie", "YAVR.Scenes{$this->InstanceID}", 6);
+    $inputId = $this->RegisterVariableFloat("Version", "Version", "YAVR.Inputs{$this->InstanceID}", 8);
 
 
   }
