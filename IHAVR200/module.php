@@ -1,6 +1,6 @@
 <?
 require_once("Api.php");
-//require_once("Client.php");
+require_once("Client.php");
 require_once("Robot.php");
 class IHAVR200 extends IPSModule {
   public $InputMapping = array(
@@ -51,7 +51,7 @@ class IHAVR200 extends IPSModule {
     'Main Zone Sync' => 200
   );
 
-  class NeatoBotvacClient {
+  class Client {
 	protected $baseUrl = "https://vorwerk-beehive-production.herokuapp.com";
 	public $token;
 
