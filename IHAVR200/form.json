@@ -1,7 +1,7 @@
 {
   "elements": [
-		{ "name": "email", "type": "ValidationTextBox", "caption": "email" },
-        { "type": "PasswordTextBox", "name": "password", "caption": "password" },
+		{ "name": "EMail", "type": "ValidationTextBox", "caption": "EMail" },
+        { "type": "PasswordTextBox", "name": "Password", "caption": "Password" },
   ],
   "actions": [
     { "type": "Button", "label": "Einschalten", "onClick": "YAVR_SetState($id, true);" },
