@@ -1,17 +1,9 @@
 <?php
 
-/*
-* Neato Botvac Robot
-* Makes requests against the robot
-*
-* PHP port based on https://github.com/kangguru/botvac
-*
-* Author: Tom Rosenback tom.rosenback@gmail.com  2016
-*/
 
-require_once("NeatoBotvacApi.php");
+require_once("Api.php");
 
-class NeatoBotvacRobot {
+class Robot {
 	protected $baseUrl = "https://nucleo.ksecosys.com/vendors/vorwerk/robots/";
 	protected $serial;
 	protected $secret;
