@@ -55,7 +55,7 @@ class IHAVR200 extends IPSModule {
   
   public function Create() {
     parent::Create();
-    $this->RegisterPropertyString("Benutzername", "");
+    $this->RegisterPropertyString("EMail", "");
     $this->RegisterPropertyString("Password", "");
 
     if (!IPS_VariableProfileExists('Volume.YAVR')) IPS_CreateVariableProfile('Volume.YAVR', 2);
