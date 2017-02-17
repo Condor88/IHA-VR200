@@ -1,17 +1,10 @@
 <?php
 
-/*
-* Neato Botvac Client
-* Used to authorize the client and to fetch registered robots for the client
-*
-* PHP port based on https://github.com/kangguru/botvac
-*
-* Author: Tom Rosenback tom.rosenback@gmail.com 2016
-*/
 
-require_once("NeatoBotvacApi.php");
 
-class NeatoBotvacClient {
+require_once("Api.php");
+
+class Client {
 	protected $baseUrl = "https://vorwerk-beehive-production.herokuapp.com";
 	public $token;
 
