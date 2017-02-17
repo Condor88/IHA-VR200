@@ -205,7 +205,7 @@ class IHAVR200 extends IPSModule {
   }
 
   public function Request($partial, $cmd = 'GET') {
-    $host = $this->ReadPropertyString('Host');
+    $Benutzername = $this->ReadPropertyString('Benutzername');
     $zone = $this->ReadPropertyString('Zone');
     $cmd = strtoupper($cmd);
     $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
