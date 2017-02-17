@@ -1,15 +1,5 @@
 <?php
-
-/*
-* Neato Botvac Api.
-* Helper class to make requests against Neato API
-*
-* PHP port based on https://github.com/kangguru/botvac
-*
-* Author: Tom Rosenback tom.rosenback@gmail.com  2016
-*/
-
-class NeatoBotvacApi {
+class Api {
 	public static function request($url, $payload = array(), $method = "POST", $headers = array()) {
 		$ch = curl_init($url);
 
