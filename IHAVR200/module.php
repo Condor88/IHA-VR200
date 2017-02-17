@@ -10,7 +10,15 @@ class NeatoBotvacClient {
 	public function __construct($token = false) {
 		$this->token = $token;
 	}
+ public function Create() {
+    parent::Create();
+    $this->RegisterPropertyString("email", "");
+    $this->RegisterPropertyString("password", "");
 
+
+    $this->UpdateScenesProfile();
+    $this->UpdateInputsProfile();
+  }
 	public function authorize($email, $password, $force = false) {
 		if($this->token === false || $force === true) {
 			$result = NeatoBotvacApi::request($this->baseUrl."/sessions",
@@ -30,15 +38,7 @@ class NeatoBotvacClient {
 		return $this->token;
 	}
 
-	  public function Create() {
-    parent::Create();
-    $this->RegisterPropertyString("email", "");
-    $this->RegisterPropertyString("password", "");
-
-
-    $this->UpdateScenesProfile();
-    $this->UpdateInputsProfile();
-  }
+	 
 	 public function ApplyChanges() {
     parent::ApplyChanges();
     $this->UpdateScenesProfile();
