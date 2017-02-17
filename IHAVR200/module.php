@@ -32,12 +32,25 @@ class NeatoBotvacClient {
 
 	  public function Create() {
     parent::Create();
-    $this->RegisterPropertyString("EMail", "");
-    $this->RegisterPropertyString("Password", "");
+    $this->RegisterPropertyString("email", "");
+    $this->RegisterPropertyString("password", "");
 
 
     $this->UpdateScenesProfile();
     $this->UpdateInputsProfile();
+  }
+	 public function ApplyChanges() {
+    parent::ApplyChanges();
+    $this->UpdateScenesProfile();
+    $this->UpdateInputsProfile();
+	
+	
+	$sceneId = $this->RegisterVariableFloat("Status", "Status", "email");
+ //   $sceneId = $this->RegisterVariableFloat("Status", "Status", "YAVR.Scenes{$this->InstanceID}", 7);
+ //   $sceneId = $this->RegisterVariableFloat("Batterie", "Batterie", "YAVR.Scenes{$this->InstanceID}", 6);
+ //   $inputId = $this->RegisterVariableFloat("Version", "Version", "YAVR.Inputs{$this->InstanceID}", 8);
+
+
   }
 	
 	public function reauthorize($email, $password) {
@@ -110,52 +123,11 @@ class IHAVR200 extends IPSModule {
 
  
   
-  public function Create() {
-    parent::Create();
-    $this->RegisterPropertyString("EMail", "");
-    $this->RegisterPropertyString("Password", "");
 
-
-    $this->UpdateScenesProfile();
-    $this->UpdateInputsProfile();
-  }
   
   
 
-  public function Destroy() {
-    parent::Destroy();
-    if (!IPS_VariableProfileExists("YAVR.Scenes{$this->InstanceID}")) IPS_DeleteVariableProfile("YAVR.Scenes{$this->InstanceID}");
-    if (!IPS_VariableProfileExists("YAVR.Input{$this->InstanceID}")) IPS_DeleteVariableProfile("YAVR.Inputs{$this->InstanceID}");
-  }
-
-  public function GetInputId($key) {
-    if(array_key_exists($key, $this->InputMapping)) {
-      return $this->InputMapping[$key];
-    } else {
-      throw new Exception("Invalid input $key");
-    }
-  }
-
-  public function GetInputKey($id) {
-    $map = array_flip($this->InputMapping);
-    if(array_key_exists($id, $map)) {
-      return $map[$id];
-    } else {
-      throw new Exception("Invalid input id $id");
-    }
-  }
-
-  public function ApplyChanges() {
-    parent::ApplyChanges();
-    $this->UpdateScenesProfile();
-    $this->UpdateInputsProfile();
-
-    $sceneId = $this->RegisterVariableFloat("Status", "Status", "YAVR.Scenes{$this->InstanceID}", 7);
-    $sceneId = $this->RegisterVariableFloat("Batterie", "Batterie", "YAVR.Scenes{$this->InstanceID}", 6);
-    $inputId = $this->RegisterVariableFloat("Version", "Version", "YAVR.Inputs{$this->InstanceID}", 8);
-
-
-  }
+ 
 
   protected function UpdateScenesProfile($scenes = array()) {
     if (!IPS_VariableProfileExists("YAVR.Scenes{$this->InstanceID}")) IPS_CreateVariableProfile("YAVR.Scenes{$this->InstanceID}", 1);
