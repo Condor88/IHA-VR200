@@ -94,16 +94,13 @@ class IHAVR200 extends IPSModule {
     $this->UpdateScenesProfile();
     $this->UpdateInputsProfile();
 
-   
+    $sceneId = $this->RegisterVariableFloat("Status", "Status", "YAVR.Scenes{$this->InstanceID}", 7);
     $sceneId = $this->RegisterVariableFloat("SCENE", "Batterie", "YAVR.Scenes{$this->InstanceID}", 8);
     $this->EnableAction("SCENE");
-    IPS_SetIcon($sceneId, 'HollowArrowRight');
     $inputId = $this->RegisterVariableFloat("INPUT", "Version", "YAVR.Inputs{$this->InstanceID}", 9);
     $this->EnableAction("INPUT");
-    IPS_SetIcon($inputId, 'ArrowRight');
 
-    $this->RequestData();
-    $this->RegisterTimer('INTERVAL', $this->ReadPropertyInteger('UpdateInterval'), 'YAVR_RequestData($id)');
+
   }
 
   protected function UpdateScenesProfile($scenes = array()) {
