@@ -2,7 +2,7 @@
 class IHAVR200 extends IPSModule {
 require_once("Api.php");
 require_once("Client.php");
-require_once("Robot.php");  
+require_once("Robot.php")  
   public $InputMapping = array(
     'HDMI1' => 1,
     'HDMI2' => 2,
