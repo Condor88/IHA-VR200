@@ -1,11 +1,11 @@
 {
-  "id": "{2A6B232F-38C9-424D-9D9B-6C520DBD529B}",
-  "name": "YAVR",
+  "id": "{434E2529-29D0-43A1-B80F-E02D7473202D}",
+  "name": "IHAVR200",
   "type": 3,
-  "vendor": "Yamaha",
-  "aliases": [ "Yamaha AVR" ],
+  "vendor": "IHAVR200",
+  "aliases": [ "IHAVR200" ],
   "parentRequirements": [],
   "childRequirements": [],
   "implemented": [],
-  "prefix": "YAVR"
+  "prefix": "IHAVR200"
 }
