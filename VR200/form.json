@@ -1,7 +1,12 @@
 {
   "elements": [
-    { "name": "User", "type": "ValidationTextBox", "caption": "User" },
-	{ "name": "Password", "type": "ValidationTextBox", "caption": "Password" },
+    { "name": "Host", "type": "ValidationTextBox", "caption": "Host" },
+    { "name": "Zone", "type": "Select", "caption": "Zone", "options": [
+      { "label": "Main_Zone", "value": "Main_Zone" },
+      { "label": "Zone_2", "value": "Zone_2" },
+      { "label": "Zone_3", "value": "Zone_3" },
+      { "label": "Zone_4", "value": "Zone_4" }
+    ] },
     { "name": "UpdateInterval", "type": "IntervalBox", "caption": "Sekunden" },
 
   ],
