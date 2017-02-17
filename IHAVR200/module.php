@@ -64,7 +64,7 @@ class IHAVR200 extends IPSModule {
 			$result = NeatoBotvacApi::request($this->baseUrl."/sessions",
 				array(
 					"platform" 	=> "ios",
-					"Benutzername" 		=> $email,
+					"email" 		=> $email,
 					"token" 		=> bin2hex(openssl_random_pseudo_bytes(32)),
 					"password" 	=> $password
 				)
@@ -78,8 +78,8 @@ class IHAVR200 extends IPSModule {
 		return $this->token;
 	}
 
-	public function reauthorize("Benutzername" , $password) {
-		return $this->authorize("Benutzername" , $password, true);
+	public function reauthorize($email, $password) {
+		return $this->authorize($email, $password, true);
 	}
 
 	public function getRobots($token = false) {
