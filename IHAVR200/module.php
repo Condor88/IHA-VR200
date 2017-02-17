@@ -20,15 +20,6 @@ class NeatoBotvacClient {
 					"token" 		=> bin2hex(openssl_random_pseudo_bytes(32)),
 					"password" 	=> $password
 				)
-				
-    parent::Create();
-    $this->RegisterPropertyString("EMail", "");
-    $this->RegisterPropertyString("Password", "");
-
-
-    $this->UpdateScenesProfile();
-    $this->UpdateInputsProfile();
-
 			);
 
 			if(isset($result["access_token"])) {
@@ -39,6 +30,16 @@ class NeatoBotvacClient {
 		return $this->token;
 	}
 
+	  public function Create() {
+    parent::Create();
+    $this->RegisterPropertyString("EMail", "");
+    $this->RegisterPropertyString("Password", "");
+
+
+    $this->UpdateScenesProfile();
+    $this->UpdateInputsProfile();
+  }
+	
 	public function reauthorize($email, $password) {
 		return $this->authorize($email, $password, true);
 	}
@@ -109,7 +110,15 @@ class IHAVR200 extends IPSModule {
 
  
   
-  
+  public function Create() {
+    parent::Create();
+    $this->RegisterPropertyString("EMail", "");
+    $this->RegisterPropertyString("Password", "");
+
+
+    $this->UpdateScenesProfile();
+    $this->UpdateInputsProfile();
+  }
   
   
 
