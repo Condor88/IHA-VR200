@@ -1,0 +1,11 @@
+{
+  "id": "{2A6B232F-38C9-424D-9D9B-6C520DBD529B}",
+  "name": "Kobolt VR200",
+  "type": 3,
+  "vendor": "IHausautomation",
+  "aliases": [ "Kobolt VR200" ],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "VR200"
+}
