@@ -49,8 +49,57 @@ class IHAVR200 extends IPSModule {
     'JUKE' => 115,
     'MusicCast Link' => 116,
     'Main Zone Sync' => 200
+	'Status' => 300
+	'Batterie' => 400
+	'Version' => 500
   );
 
+  class NeatoBotvacClient {
+	protected $baseUrl = "https://vorwerk-beehive-production.herokuapp.com";
+	public $token;
+
+	public function __construct($token = false) {
+		$this->token = $token;
+	}
+
+	public function authorize($email, $password, $force = false) {
+		if($this->token === false || $force === true) {
+			$result = NeatoBotvacApi::request($this->baseUrl."/sessions",
+				array(
+					"platform" 	=> "ios",
+					"Benutzername" 		=> $email,
+					"token" 		=> bin2hex(openssl_random_pseudo_bytes(32)),
+					"password" 	=> $password
+				)
+			);
+
+			if(isset($result["access_token"])) {
+				$this->token = $result["access_token"];
+			}
+		}
+
+		return $this->token;
+	}
+
+	public function reauthorize("Benutzername" , $password) {
+		return $this->authorize("Benutzername" , $password, true);
+	}
+
+	public function getRobots($token = false) {
+		$result = array("message" => "no token");
+
+		if($token !== false) {
+			$this->token = $token;
+		}
+
+		if($this->token !== false) {
+			$result = NeatoBotvacApi::request($this->baseUrl."/dashboard", null, "GET", array("Authorization: Token token=".$this->token));
+		}
+
+		return $result;
+	}
+}
+  
   public function Create() {
     parent::Create();
     $this->RegisterPropertyString("Benutzername", "");
@@ -94,11 +143,9 @@ class IHAVR200 extends IPSModule {
     $this->UpdateScenesProfile();
     $this->UpdateInputsProfile();
 
-    $sceneId = $this->RegisterVariableFloat("Status", "Status", "YAVR.Scenes{$this->InstanceID}", 7);
-    $sceneId = $this->RegisterVariableFloat("SCENE", "Batterie", "YAVR.Scenes{$this->InstanceID}", 8);
-    $this->EnableAction("SCENE");
-    $inputId = $this->RegisterVariableFloat("INPUT", "Version", "YAVR.Inputs{$this->InstanceID}", 9);
-    $this->EnableAction("INPUT");
+    $sceneId = $this->RegisterVariableFloat("Status", "Status", "YAVR.Scenes{$this->InstanceID}", 300);
+    $sceneId = $this->RegisterVariableFloat("Batterie", "Batterie", "YAVR.Scenes{$this->InstanceID}", 400);
+    $inputId = $this->RegisterVariableFloat("Version", "Version", "YAVR.Inputs{$this->InstanceID}", 500);
 
 
   }
