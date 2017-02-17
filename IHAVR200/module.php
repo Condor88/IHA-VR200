@@ -51,7 +51,7 @@ class IHAVR200 extends IPSModule {
     'Main Zone Sync' => 200
   );
 
-  class Client {
+  
 	protected $baseUrl = "https://vorwerk-beehive-production.herokuapp.com";
 	public $token;
 
@@ -95,7 +95,7 @@ class IHAVR200 extends IPSModule {
 
 		return $result;
 	}
-}
+
   
   public function Create() {
     parent::Create();
